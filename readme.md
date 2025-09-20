@@ -37,30 +37,40 @@ Dashboard table of invoices (TanStack Table)
 
 Row click → modal with invoice details
 
+--------------------------------
+--------------------------------------------------
+RUN PROJECT
+--------------------------------------------------
 
 
-Backend (NestJS + Prisma)
+
+
+
+-----Backend (NestJS + Prisma)
 cd server
 npm install
 
-
-Run Database with Docker
+---- Run Database with Docker
 docker-compose up -d
 
-Run Migrations + Seed
-npx prisma migrate dev --name init
+
+------------------------CREATE and ADD to /server/.env  
+DATABASE_URL="postgresql://postgres:postgres@localhost:5431/mydb?schema=public"
+
+---- Run Migrations + Seed
+npx prisma migrate dev 
 npx prisma db seed
 
-Start Backend
+---- Start Backend
 npm run start:dev
 
 Server runs at http://localhost:3000
 
-Frontend (React + Vite)
++++++++++++   Frontend (React + Vite)
 cd client
 npm install
 
-Start Frontend
++++++++++++++  Start Frontend
 npm run dev
 
 Frontend runs at http://localhost:5173
@@ -81,11 +91,4 @@ Get all invoices for authenticated user.
 GET /invoices/:id
 Get single invoice details (belongs to authenticated user only).
 
-
-🐳 Docker
-To run PostgreSQL database in Docker:
-docker-compose up -d
-
-
-Stop:
-docker-compose down
+ 
